@@ -18,7 +18,7 @@ public class AritmeticaTest {
     public void testSuma() {
         Aritmetica aritmetica = new Aritmetica();//Creo un objeto aritmetica
         assertEquals(3, aritmetica.suma(2, 1));
-
+        System.out.println("Test Success");
 
     }
 
