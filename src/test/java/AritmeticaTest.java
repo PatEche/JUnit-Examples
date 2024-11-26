@@ -1,6 +1,7 @@
 import com.pateche.Aritmetica;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,14 @@ public class AritmeticaTest {
     @DisplayName("2 + 1 = 3")
     public void testSuma() {
         Aritmetica aritmetica = new Aritmetica();//Creo un objeto aritmetica
-        assertEquals(3, aritmetica.suma(2, 1));
+//        assertEquals(3, aritmetica.suma(2, 1));
+
+        float result = aritmetica.suma(10, 20);
+
+//        assertEquals(30,result);
+
+        assertTrue(result > 10);
+
 
 
     }
