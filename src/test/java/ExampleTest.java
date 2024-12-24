@@ -1,13 +1,13 @@
 import com.pateche.Example;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ExampleTest {
 
@@ -154,6 +154,90 @@ public class ExampleTest {
 
     }
 
+
+    @Test
+    public void testMensajeConRetraso() throws InterruptedException {
+
+        Example example = new Example();
+        System.out.println("Inicio ejecucion mensaje: " + LocalTime.now());
+
+        // When
+        String result = example.mensajeConRetraso();
+
+
+        // Then
+        assertEquals("Listo después de retraso", result);
+        System.out.println("Fin ejecucion mensaje " + LocalTime.now());
+    }
+
+
+    @Test
+    public void testConviertirAString() {
+
+        // Given
+        Example example = new Example();
+
+        List<Integer> numbers = List.of(2, 4, 6, 8, 10);
+
+        // When
+        List<String> result = example.convertirAString(numbers);
+
+        // Then
+        assertEquals(List.of("2", "4", "6", "8", "10"), result);
+
+        System.out.println(result);
+
+
+    }
+
+
+    @Test
+    public void testCalcularMedia() {
+
+        // Given
+        Example example = new Example();
+
+        List<Integer> numbers = List.of(1, 2, 3);
+
+        // When
+        double result = example.calcularMedia(numbers);
+
+        // Then
+        assertEquals(2.0, result);
+
+        System.out.println(result);
+
+    }
+
+    @Test
+    public void testCalcularMediaNull() {
+        // Given
+        Example example = new Example();
+
+        //When - Then
+        List<Integer> numbers = null;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            example.calcularMedia(numbers);
+        });
+
+
+    }
+
+    @Test
+    public void testCalcularMediaEmpty(){
+
+        // Given
+        Example example = new Example();
+
+        // When - Then
+        List<Integer> numbers = List.of();
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            example.calcularMedia(numbers);
+        });
+
+    }
 
 }
 

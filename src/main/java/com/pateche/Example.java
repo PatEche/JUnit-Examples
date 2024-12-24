@@ -2,7 +2,6 @@ package com.pateche;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Example {
 
@@ -80,11 +79,55 @@ public class Example {
     }
 
 
+    // 8. Metodo que simula un retraso y retorna un mensaje
+    public String mensajeConRetraso() throws InterruptedException {
+        Thread.sleep(5000);
+        return "Listo después de retraso";
+    }
+
+    // 9. Metodo para convertir una lista de enteros a lista de strings
+
+    public List<String> convertirAString(List<Integer> lista) {
+
+        return lista.stream().map(String::valueOf)// Convierte cada valor en un String
+                .collect(Collectors.toList());// Recolecta el resultado en una lista
+
+
+    }
+
+    // 10. Metodo que calcula la media de una lista de enteros
+    public double calcularMedia(List<Integer> lista) {
+        //Metodo implementando puramente programacion funcional
+
+        if (lista == null || lista.isEmpty()) {
+            throw new IllegalArgumentException("La lista no puede ser nula o vacia");
+        }
+
+        return lista.stream()
+                .mapToInt(Integer::intValue)
+                .average()
+                .getAsDouble();
+
+        //Paradigma imperativo y algo funcional
+
+//        int contador = 0;
+//        for (int i = 0; i < lista.size(); i++) {
+//            contador += lista.get(i);
+//            System.out.println("Valor actual del contador:" + contador);
+//        }
+//
+//        int cantNotas = (int) lista.stream().count();//Obtengo la cantidad de notas almacenada en la lista y obtengo el valor entero
+//
+//        double result = (contador / cantNotas);//Operacion en la cual divido lo que se guardo en el contador por la cantidad de notas
+//
+//        return result;//Imprimo el resultado de la operacion
+
+
+    }
+
 }
 
-// 8. Metodo que simula un retraso y retorna un mensaje
-// 9. Metodo para convertir una lista de enteros a lista de strings
-// 10. Metodo que calcula la media de una lista de enteros
+
 // 11. Metodo para convertir una lista de enteros a lista de strings
 
 
