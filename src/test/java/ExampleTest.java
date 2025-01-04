@@ -3,7 +3,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -190,6 +189,36 @@ public class ExampleTest {
 
     }
 
+    @Test
+    public void testConvierteAStringEmpty() {
+
+        Example example = new Example();
+
+
+        //When - Then
+        List<Integer> numbers = List.of();
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            example.convertirAString(numbers);
+        });
+
+    }
+
+    @Test
+    public void testConvierteAStringNull() {
+
+        //Given
+        Example example = new Example();
+
+        //When - Then
+        List<Integer> numbers = null;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            example.convertirAString(numbers);
+        });
+
+
+    }
 
     @Test
     public void testCalcularMedia() {
@@ -225,7 +254,7 @@ public class ExampleTest {
     }
 
     @Test
-    public void testCalcularMediaEmpty(){
+    public void testCalcularMediaEmpty() {
 
         // Given
         Example example = new Example();
@@ -239,5 +268,54 @@ public class ExampleTest {
 
     }
 
+
+    @Test
+    public void convertirListaAStrings() {
+
+        // Given
+        Example example = new Example();
+
+        List<Integer> numbers = List.of(2, 4, 6, 8, 10);
+
+        // When
+        List<String> result = example.convertirListaAStrings(numbers);
+
+        // Then
+        assertEquals(List.of("2", "4", "6", "8", "10"), result);
+
+        System.out.println(result);
+
+
+    }
+
+
+    @Test
+    public void convertirListaAStringNull() {
+
+        Example example = new Example();
+
+        List<Integer> lista = null;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            example.convertirListaAStrings(lista);
+        });
+    }
+
+    @Test
+    public void convertirListaAStringEmpty() {
+
+        Example example = new Example();
+
+        List<Integer> numbers = List.of();
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            example.convertirListaAStrings(numbers);
+        });
+
+    }
+
+
 }
+
+
 

@@ -86,8 +86,11 @@ public class Example {
     }
 
     // 9. Metodo para convertir una lista de enteros a lista de strings
-
     public List<String> convertirAString(List<Integer> lista) {
+
+        if(lista == null || lista.isEmpty()){
+            throw new IllegalArgumentException("The list can not empty or null");
+        }
 
         return lista.stream().map(String::valueOf)// Convierte cada valor en un String
                 .collect(Collectors.toList());// Recolecta el resultado en una lista
@@ -97,16 +100,19 @@ public class Example {
 
     // 10. Metodo que calcula la media de una lista de enteros
     public double calcularMedia(List<Integer> lista) {
-        //Metodo implementando puramente programacion funcional
+        //Method that implement functional programming
 
         if (lista == null || lista.isEmpty()) {
-            throw new IllegalArgumentException("La lista no puede ser nula o vacia");
+            throw new IllegalArgumentException("the list can't be null or empty");
         }
 
         return lista.stream()
                 .mapToInt(Integer::intValue)
-                .average()
+                .average()//This function return the average of the list of numbers
                 .getAsDouble();
+
+
+
 
         //Paradigma imperativo y algo funcional
 
@@ -125,10 +131,32 @@ public class Example {
 
     }
 
+    // 11. Metodo para convertir una lista de enteros a lista de strings
+    public List<String>convertirListaAStrings(List<Integer>lista){
+
+        if(lista == null || lista.isEmpty()){
+            throw new IllegalArgumentException("List can not be null or empty");
+        }
+
+        return lista.stream() // Convert list to stream
+                .map(String::valueOf) // Convert each element to string
+                .collect(Collectors.toList()); // Collect result into a new list
+
+
+
+
+
+
+
+
+
+    }
+
+
 }
 
 
-// 11. Metodo para convertir una lista de enteros a lista de strings
+
 
 
 
